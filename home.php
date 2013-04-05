@@ -51,6 +51,7 @@
         $chart->options['plotOptions']['pie']['dataLabels']['enabled'] = false;
         $chart->options['plotOptions']['pie']['dataLabels']['color'] = "#f00";
         $chart->options['plotOptions']['pie']['dataLabels']['connectorColor'] = "#00f";
+        $chart->options['plotOptions']['pie']['animation'] = false;
         $chart->activateLinks();
         $chart->options['series'][] = array(   'type' => 'pie',
                                     'data' => $chart1data,
@@ -121,29 +122,13 @@
         $chart2->options['plotOptions']['area']['trackByArea'] = true;
         $chart2->options['plotOptions']['area']['marker']['enabled'] = false;
         $chart2->options['plotOptions']['area']['marker']['symbol'] = "circle";
+        $chart2->options['plotOptions']['area']['animation'] = false;
         $chart2->options['xAxis']['max'] = $databaseGR->getOption("end_datum")."000";
         $chart2->options['xAxis']['type'] = "datetime";
         $chart2->options['yAxis']['min'] = 0;
         $chart2->options['yAxis']['endOnTick'] = false;
         $chart2->activateLinks("series");
-    /*    $chart2 = new Highchart();
-        $chart2->title->text = "";
-        $chart2->chart->renderTo = "GR_verlauf";
-        $chart2->chart->type = "area";
-        $chart2->plotOptions->area->stacking = "normal";
-        $chart2->plotOptions->area->marker->enabled = false;
-        $chart2->plotOptions->area->marker->symbol = "circle";
-        $chart2->plotOptions->area->lineColor = "#ffffff";
-        $chart2->plotOptions->area->lineWidth = 0;
-        $chart2->plotOptions->area->trackByArea = true;
-        $chart2->plotOptions->series->fillOpacity = "0.1";
-        $chart2->xAxis->type = "datetime";
-        $chart2->xAxis->max = $databaseGR->getOption("end_datum")."000";
-        $chart2->yAxis->title = "";
-        $chart2->yAxis->min = 0;
-        $chart2->yAxis->endOnTick = false;
-        $chart2->yAxis->max = array_sum($auswGR->getCurrentNumberOfPledgestatetypes());
-*/
+
         foreach ($arsno as $val) {
             $chart2->options['series'][] = $val;
         }

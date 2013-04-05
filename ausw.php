@@ -33,6 +33,7 @@ ksort($chart1array);
 
 $chart = new KOM_Highchart("ausw_verteilung");
 $chart->options['title']['text'] = "";
+$chart->options['plotOptions']['pie']['animation'] = false;
 $chart->activateLinks();
 
 $chart->options['series'][] = array(   'type' => 'pie',
@@ -92,11 +93,13 @@ krsort($arsno);
 
 $chart2 = new KOM_Highchart("ausw_verlauf");
 $chart2->options['chart']['type'] = "area";
+$chart2->options['chart']['zoomType'] = "x";
 $chart2->options['title']['text'] = "";
 $chart2->options['plotOptions']['area']['stacking'] = "normal";
 $chart2->options['plotOptions']['area']['trackByArea'] = true;
 $chart2->options['plotOptions']['area']['marker']['enabled'] = false;
 $chart2->options['plotOptions']['area']['marker']['symbol'] = "circle";
+$chart2->options['plotOptions']['area']['animation'] = false;
 $chart2->options['xAxis']['max'] = $database->getOption("end_datum")."000";
 $chart2->options['xAxis']['type'] = "datetime";
 $chart2->options['yAxis']['min'] = 0;
