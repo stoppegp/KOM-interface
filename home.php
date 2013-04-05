@@ -46,11 +46,13 @@
     }
     
     /* Diagramm erstellen */
-        $chart = new Highchart();
-        $chart->title->text = "";
-        $chart->chart->renderTo = "GR_verteilung";
-        $chart->plotOptions->pie->dataLabels->enabled = false;
-        $chart->series[] = array(   'type' => 'pie',
+        $chart = new KOM_Highchart("GR_verteilung");
+        $chart->options['title']['text'] = "";
+        $chart->options['plotOptions']['pie']['dataLabels']['enabled'] = false;
+        $chart->options['plotOptions']['pie']['dataLabels']['color'] = "#f00";
+        $chart->options['plotOptions']['pie']['dataLabels']['connectorColor'] = "#00f";
+        $chart->activateLinks();
+        $chart->options['series'][] = array(   'type' => 'pie',
                                     'data' => $chart1data,
                                 );
                                 
@@ -85,6 +87,7 @@
             'name' => $databaseGR->getPledgestatetypegroup($key)->getName(),
             'color' => $databaseGR->getPledgestatetypegroup($key)->getColour(),
             'fillOpacity' => "0.5",
+            'url' => dolink("list", array("pst" => $key))
         );
         if (!array_sum($val) == 0) {
             foreach ($val as $key2 => $val2) {
@@ -111,7 +114,19 @@
     
     /* Diagramm erstellen */
             
-        $chart2 = new Highchart();
+        $chart2 = new KOM_Highchart("GR_verlauf");
+        $chart2->options['chart']['type'] = "area";
+        $chart2->options['title']['text'] = "";
+        $chart2->options['plotOptions']['area']['stacking'] = "normal";
+        $chart2->options['plotOptions']['area']['trackByArea'] = true;
+        $chart2->options['plotOptions']['area']['marker']['enabled'] = false;
+        $chart2->options['plotOptions']['area']['marker']['symbol'] = "circle";
+        $chart2->options['xAxis']['max'] = $databaseGR->getOption("end_datum")."000";
+        $chart2->options['xAxis']['type'] = "datetime";
+        $chart2->options['yAxis']['min'] = 0;
+        $chart2->options['yAxis']['endOnTick'] = false;
+        $chart2->activateLinks("series");
+    /*    $chart2 = new Highchart();
         $chart2->title->text = "";
         $chart2->chart->renderTo = "GR_verlauf";
         $chart2->chart->type = "area";
@@ -128,9 +143,9 @@
         $chart2->yAxis->min = 0;
         $chart2->yAxis->endOnTick = false;
         $chart2->yAxis->max = array_sum($auswGR->getCurrentNumberOfPledgestatetypes());
-
+*/
         foreach ($arsno as $val) {
-            $chart2->series[] = $val;
+            $chart2->options['series'][] = $val;
         }
     
 ?>
@@ -142,8 +157,9 @@
 <script type="text/javascript">
 <?
 echo $chart->render();
+echo $chart2->render();
 
-$temp1 = $chart2->render();
+//$temp1 = $chart2->render();
 $temp1 = str_replace('"[', '[', $temp1);
 $temp1 = str_replace(']"', ']', $temp1);
 echo $temp1;
