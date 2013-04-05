@@ -60,11 +60,13 @@ $now = time();
         
 
 foreach ($c2d as $key => $val) {
+    $temp001 = $database->getGroupsOfPledgestatetype($key);
     $sno = $order0[$key];
     $temp00 = null;
     $temp00 = array(
         'name' => $database->getPledgestatetype($key)->getName(),
         'color' => $database->getPledgestatetype($key)->getColour(),
+        'url' => dolink("list", array("pst" => $temp001[0])),
         'fillOpacity' => "0.5",
     );
     if (!array_sum($val) == 0) {
