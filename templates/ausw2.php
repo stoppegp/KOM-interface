@@ -1,0 +1,1 @@
+<div style="width: 100%;" id="linechart"></div>
