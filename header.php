@@ -11,7 +11,7 @@
   <body>
       <div class="main">
           <div class="header">
-              <h1>Kretschmann-O-Meter</h1>
+              <h1><? echo $mainDB->getOption("site_title"); ?></h1>
               <ul class="menu">
                 <?php
                 foreach ($KOM_MAINMENU as $key => $val) {
