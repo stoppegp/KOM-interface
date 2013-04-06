@@ -3,32 +3,6 @@
 if ($KOM_SHOWSIDEMENU == true) {
 ?>
 <div class="sidemenu">
-
-
-  <h2>Kategorie</h2>
-  <ul class="menu">
-  
-  <?php
-    if (!is_numeric($active['cat'])) {
-        $acac = "id=\"active_cat\"";
-    } else {
-        $acac = "";
-    }
-  ?>
-  <li><a <?=$acac;?> href="<?=dolink("", array("cat" => ""));?>">Alles</a></li>
-  <?php
-  
-  foreach ($mainDB->getCategories("name") as $value) {
-    if ($value->getID() == $active['cat']) {
-        $acac = "id=\"active_cat\"";
-    } else {
-        $acac = "";
-    }
-    echo "<li><a $acac href=\"".dolink("", array("cat" => $value->getID()))."\">".$value->getName()."</a></li>";
-  }
-  
-  ?>
-  </ul>
    <h2>Partei</h2>
   <ul class="menu">
   <?php
