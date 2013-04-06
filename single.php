@@ -1,9 +1,9 @@
 <?php
 
-if (!is_numeric($_GET['issueid'])) $_GET['issueid'] = 0;
+if (!is_numeric($active['issueid'])) $active['issueid'] = 0;
 
 $database = new Database($dblink);
-$database->setFilter("issues", $_GET['issueid']);
+$database->setFilter("issues", $active['issueid']);
 $database->loadContent();
 echo "<br><br>";
 foreach ($database->getIssues() as $value) {

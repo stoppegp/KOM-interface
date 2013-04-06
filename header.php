@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title><?=$KOM_PAGETITLE;?></title>
-    <script src="interface/js/jquery-1.9.1.min.js"></script>
-    <script src="interface/js/highcharts.js"></script>
+    <script src="<?=SITE_URL;?>/interface/js/jquery-1.9.1.min.js"></script>
+    <script src="<?=SITE_URL;?>/interface/js/highcharts.js"></script>
     <? echo getScripts(); ?>
-    <link rel="stylesheet" type="text/css" href="interface/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="<?=SITE_URL;?>/interface/css/layout.css">
     <? echo getStyles(); ?>
   </head>
   <body>

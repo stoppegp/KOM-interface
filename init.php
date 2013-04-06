@@ -41,5 +41,7 @@ foreach ($mainDB->getCategories("name", "ASC") as $val) {
 }
 
 registerMenu($menu);
+setRewrite("intRewrite");
+setDoLink("intDoLink");
 
 ?>
