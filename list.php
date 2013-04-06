@@ -9,8 +9,8 @@ if (is_numeric($active['cat'])) {
 if (is_numeric($active['party'])) {
     $database->setFilter("parties", $active['party']);
 }
-if (is_numeric($active['pst'])) {
-    $database->setFilter("pledgestatetypegroup", $active['pst']);
+if (is_numeric($active['pstg'])) {
+    $database->setFilter("pledgestatetypegroup", $active['pstg']);
 }
 
 

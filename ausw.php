@@ -9,8 +9,8 @@ if (is_numeric($active['cat'])) {
 if (is_numeric($active['party'])) {
     $database->setFilter("parties", $active['party']);
 }
-if (is_numeric($active['pst'])) {
-    $database->setFilter("pledgestatetypegroup", $active['pst']);
+if (is_numeric($active['pstg'])) {
+    $database->setFilter("pledgestatetypegroup", $active['pstg']);
 }
 
 $database->loadContent();
@@ -26,7 +26,7 @@ foreach ($database->getPledgestatetypes() as $value) {
         $chart1array[$value->getOrder()]['color'] = $value->getColour();
         $chart1array[$value->getOrder()]['y'] = $curnr[$value->getID()]*$value->getMultipl();
         $temp00 = $database->getGroupsOfPledgestatetype($value->getID());
-        $chart1array[$value->getOrder()]['url'] = dolink("list", array("pst" => $temp00[0]));
+        $chart1array[$value->getOrder()]['url'] = dolink("list", array("pstg" => $temp00[0]));
     }
 }
 ksort($chart1array);
@@ -66,7 +66,7 @@ foreach ($c2d as $key => $val) {
     $temp00 = array(
         'name' => $database->getPledgestatetype($key)->getName(),
         'color' => $database->getPledgestatetype($key)->getColour(),
-        'url' => dolink("list", array("pst" => $temp001[0])),
+        'url' => dolink("list", array("pstg" => $temp001[0])),
         'fillOpacity' => "0.5",
     );
     if (!array_sum($val) == 0) {

@@ -40,7 +40,7 @@
     foreach ($databaseGR->getPledgestatetypegroups() as $value0) {
         $tempar['name'] = $value0->getName();
         $tempar['color'] = $value0->getColour();
-        $tempar['url'] = dolink("list", array("pst" => $value0->getID()));
+        $tempar['url'] = dolink("list", array("pstg" => $value0->getID()));
         $tempar['y'] = $group_nrGR[$value0->getID()];
         $chart1data[] = $tempar;
     }
@@ -88,7 +88,7 @@
             'name' => $databaseGR->getPledgestatetypegroup($key)->getName(),
             'color' => $databaseGR->getPledgestatetypegroup($key)->getColour(),
             'fillOpacity' => "0.5",
-            'url' => dolink("list", array("pst" => $key))
+            'url' => dolink("list", array("pstg" => $key))
         );
         if (!array_sum($val) == 0) {
             foreach ($val as $key2 => $val2) {

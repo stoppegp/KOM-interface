@@ -61,7 +61,7 @@ if ($KOM_SHOWSIDEMENU == true) {
         $acac = "";
     }
   ?>
-  <li><a <?=$acac;?> href="<?=dolink("", array("pst" => ""));?>">Alles</a></li>
+  <li><a <?=$acac;?> href="<?=dolink("", array("pstg" => ""));?>">Alles</a></li>
   <?php
   foreach ($mainDB->getPledgestatetypegroups() as $value) {
     if ($value->getID() == $active['pst']) {
@@ -69,7 +69,7 @@ if ($KOM_SHOWSIDEMENU == true) {
     } else {
         $acac = "";
     }
-    echo "<li><a $acac href=\"".dolink("", array("pst" => $value->getID()))."\">".$value->getName()."</a></li>";
+    echo "<li><a $acac href=\"".dolink("", array("pstg" => $value->getID()))."\">".$value->getName()."</a></li>";
   }
   
   ?>
