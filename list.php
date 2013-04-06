@@ -23,7 +23,7 @@ $database->loadContent();
 $databaseGR->loadContent();
 $databaseK->loadContent();
 
-registerStyle('theme/css/list.css', true);
+registerStyle('interface/css/list.css', true);
 
 
     $auswGR = new Analysis($databaseGR);

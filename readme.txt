@@ -1,4 +1,4 @@
-KOM-theme
+KOM-interface
 
 beta
 
