@@ -17,6 +17,7 @@ $menu = array(
         "file"          =>  "ausw",
         "text"          =>  "Statistik",
         "active"        =>  array("page" => "ausw"),
+        "clearargs"     =>  true,
     ),
     array(
         "file"          =>  "chronik",
