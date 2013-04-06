@@ -53,9 +53,6 @@ if ($KOM_SHOWSIDEMENU == true) {
   <?php
   }
   ?>
-
-<div style="clear: both;"></div>
-
 <div class="footer">&nbsp;</div>
 </div>
 </body>

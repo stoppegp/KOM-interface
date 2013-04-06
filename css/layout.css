@@ -5,7 +5,9 @@ body, html {
     font-size: 12px;
 }
 body {
-    background-color: #bfb;
+    background-color: #aaa;
+    background: linear-gradient(to bottom, #aaa 0%,#ccc 100%);
+    background-attachment: fixed;
 }
 * {
     box-sizing: border-box;
@@ -17,7 +19,7 @@ a {
     color: green;
 }
 a:hover {
-    background-color: green;
+    background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     color: white;
 }
 
@@ -25,86 +27,86 @@ a:hover {
     width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    border-left: 0px solid black;
-    border-right: 0px solid black;
-    border-bottom: 0px solid black;
     padding: 0;
     overflow: auto;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    padding-top: 150px;
-    padding-bottom: 40px;
-    background-color: #fcfcfc;
-   
+    background-color: white;
+   box-shadow:  0px 0px 30px 10px #444;
 }
-.backg {
-    position: fixed;
-    width: 1100px;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: #fcfcfc;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
+
 .header {
     padding: 20px;
-    padding-bottom: 0;
-    padding-top: 10px;
-    border-bottom: 5px solid black;
-    background-color: green;
-    position: fixed;
+    
+    background-color: white;
     top: 0px;
     z-index: 10;
-    width: 1100px;
+    width: 100%;
     height: 150px;
-    
-    
+    position: relative;
+    top: 0px;
 }
-.header h1 {
-    margin-top: 0;
-    color: white;
-}
+
 .header ul.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
     clear: both;
-    margin-left: -6px;
-    margin-right: -6px;
+    margin-left: -20px;
     overflow: auto;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%); /* W3C */
 }
+
 .header ul.menu li{
     display: block;
-    padding: 6px;
+    padding: 0 6px;
     float: left;
+    border-right: 1px solid white;
+    margin-bottom: 1px;
+}
+.header ul.menu:before {
+    content: " ";
+    z-index: 15;
+    position: absolute;
+    bottom: 42px;
+    left: 0px;
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid white;
+}
+.header ul.menu:after {
+    content: " ";
+    z-index: 15;
+    position: absolute;
+    bottom: 21px;
+    left: 0px;
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid white;
 }
 .header ul.menu li a {
+    height: 20px;
+    line-height: 20px;
     display: block;
-    margin: -6px;
-    padding: 6px;
-    background-color: white;
-}
-.header ul.menu li #active_main  {
-    background-color: green;
+    margin: 0 -6px;
+    padding: 0 6px;
     color: white;
+    background: transparent;
+}
+
+.header ul.menu li #active_main  {
+    background: linear-gradient(to top, #006e2e 0%,#4da086 100%);
 }
 .header ul.menu li a:hover {
-    background-color: green;
+    background: linear-gradient(to top, #006e2e 0%,#4da086 100%);
 }
 .content {
-    clear: both;
-    width: 800px;
+    width: 100%;
     padding: 20px;
     overflow: auto;
-    position: relative;
-    left: 0px;
-    float:left;
 }
-.contentwide {
-    width: 1000px;
-}
+
 .sidemenu {
     width: 300px;
     float: left;
@@ -153,7 +155,7 @@ h3.pledge {
 tr .quote {
     display: none;
 }
-tr:target {
+tr:target, .pledge:target {
     background-color: #ddd;
 }
 tr:target .quote{
@@ -169,12 +171,10 @@ tr:target .quote{
 }
 
 .footer {
-    width: 1100px;
+    width: 100%;
     border-top: 5px solid black;
-    position: fixed;
-    bottom: 0px;
     margin: 0;
     padding: 10px;
     height: 40px;
-    background-color: green;
+    background-color: #5ead48;
 }

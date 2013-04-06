@@ -11,7 +11,7 @@ foreach ($database->getIssues() as $value) {
     foreach ($database->getParties("order") as $value3) {
         if (is_array($value->getPledgesOfParty($value3->getID()))) {
             foreach ($value->getPledgesOfParty($value3->getID()) as $value2) {
-                echo "<h3 class=\"pledge\"><span style=\"color:".$value2->getParty()->getColour()."\">".$value2->getParty()->getName()."</span>: ".$value2->getName()."</h3>";
+                echo "<div id=\"pledge-".$value2->getID()."\" class=\"pledge\"><h3 class=\"pledge\"><span style=\"color:".$value2->getParty()->getColour()."\">".$value2->getParty()->getName()."</span>: ".$value2->getName()."</h3>";
                 if ($value2->getDesc()) {
                     echo "<div class=\"desc\">".$value2->getDesc()."</div>";
                 }
@@ -27,7 +27,7 @@ foreach ($database->getIssues() as $value) {
                         echo "<div class=\"currentstate\">".$value2->getCurrentPledgestatetype()->getName()."</div>";
                     }
                 }
-
+            echo "</div>";
             }
         }
     }

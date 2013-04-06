@@ -41,13 +41,5 @@
                 ?>
               
               </ul>
-              <div style="clear:both;"></div>
           </div>
-          <div class="backg"></div>
-          <?php
-            if ($KOM_SHOWSIDEMENU == true) {
-          ?>
-            <div class="content">
-          <? } else { ?>
-            <div class="content contentwide">
-          <? } ?>
+          <div class="content">
