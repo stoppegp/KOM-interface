@@ -1,4 +1,6 @@
 <?php
+include_once('helpers/sto-highchart-parser.class.php');
+
 $active['party'] = $_GET['party'];
 $active['cat'] = $_GET['cat'];
 $active['pstg'] = $_GET['pstg'];
@@ -8,31 +10,34 @@ $menu = array(
     array(
         "file"          =>  "home",
         "text"          =>  "Home",
-        "active"        =>  array("home"),
+        "active"        =>  array("page" => "home"),
         "clearargs"     =>  true,
-    ),
-    array(
-        "file"          =>  "list",
-        "text"          =>  "Liste",
-        "active"        =>  array("list"),
     ),
     array(
         "file"          =>  "ausw",
         "text"          =>  "Statistik",
-        "active"        =>  array("ausw"),
+        "active"        =>  array("page" => "ausw"),
     ),
     array(
         "file"          =>  "chronik",
         "text"          =>  "Chronik",
-        "active"        =>  array("chronik"),
-    ),
-    array(
-        "file"          =>  "single",
-        "text"          =>  "Einzelansicht",
-        "active"        =>  array("single"),
-        "showonlywhenactive" => true,
+        "active"        =>  array("page" => "chronik"),
+        "clearargs"     =>  true,
     ),
 );
+
+foreach ($mainDB->getCategories("name", "ASC") as $val) {
+    $menua = array(
+        "file"          =>  "list",
+        "text"          =>  $val->getName(),
+        "active"        =>  array("page" => "list", "cat" => $val->getID()),
+        "clearargs"     =>  true,
+        "args"          =>  array(
+            "cat"   =>  $val->getID(),
+        ),
+    );
+    $menu[] = $menua;
+}
 
 registerMenu($menu);
 

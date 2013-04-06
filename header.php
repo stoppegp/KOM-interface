@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <title><?=$KOM_PAGETITLE;?></title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="theme/js/jquery-1.9.1.min.js"></script>
+    <script src="theme/js/highcharts.js"></script>
     <? echo getScripts(); ?>
-    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="theme/css/layout.css">
+    <? echo getStyles(); ?>
   </head>
   <body>
       <div class="main">
@@ -15,9 +16,23 @@
               <ul class="menu">
                 <?php
                 foreach ($KOM_MAINMENU as $key => $val) {
-                    if (!$val['showonlywhenactive'] || (in_array($active['page'], $val['active']))) {
+                    
+                    $isactive = false;
+                    
+                    if (is_array($val['active'])) {
+                        $isactive = true;
+                        foreach ($val['active'] as $key2 => $val2) {
+                            if($active[$key2] != $val2) {
+                                $isactive = false;
+                            }
+                        }
+                    } else {
+                        $isactive = false;
+                    }
+                    
+                    if (!$val['showonlywhenactive'] || $isactive) {
                     ?>
-                        <li><a <? echo (in_array($active['page'], $val['active'])) ? "id=\"active_main\"" : ""; ?>  href="<?=dolink($val['file'], $val['args'], $val['clearargs']);?>"><?=$val['text'];?></a></li>
+                        <li><a <? echo ($isactive) ? "id=\"active_main\"" : ""; ?>  href="<?=dolink($val['file'], $val['args'], $val['clearargs']);?>"><?=$val['text'];?></a></li>
                     <?
                     }
                 }
