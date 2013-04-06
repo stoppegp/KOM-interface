@@ -25,10 +25,16 @@ a:hover {
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
-    padding: 20px;
+    padding: 0;
+    overflow: auto;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    padding-bottom: 40px;
 }
 .header {
     margin-bottom: 10px;
+    padding: 20px;
 }
 .header ul.menu {
     list-style-type: none;
@@ -60,17 +66,13 @@ a:hover {
 }
 .content {
     clear: both;
-    float: left;
-    width: 70%;
-    border-right: 1px solid black;
-    padding-right: 10px;
-    overflow: auto;
-}
-.contentwide {
     width: 100%;
-    border-right: none;
-    padding-right: 0;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+    left: 0px;
 }
+
 .sidemenu {
     width: 30%;
     float: left;
@@ -157,4 +159,14 @@ tr:target .quote{
 .bordertable td {
     border: 1px solid black;
     padding: 4px;
+}
+
+.footer {
+    width: 998px;
+    position: fixed;
+    bottom: 0px;
+    margin: 0;
+    padding: 10px;
+    height: 40px;
+    background-color: green;
 }

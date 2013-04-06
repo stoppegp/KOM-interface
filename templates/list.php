@@ -1,5 +1,6 @@
 <div class="list">
 <div class="listside">
+<div class="fixed">
 <?php if (is_array($nr)) { ?>
 <div>
 <h2>Wahlversprechen:</h1>
@@ -27,7 +28,7 @@
 </div>
 <? } ?>
 </div>
-
+</div>
 
 
 <?php
