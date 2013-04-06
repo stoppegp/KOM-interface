@@ -29,8 +29,8 @@ if ($KOM_SHOWSIDEMENU == true) {
   <h2>Art</h2>
   <ul class="menu">
   <?php
-    if (!is_numeric($active['pst'])) {
-        $acac = "id=\"active_pst\"";
+    if (!is_numeric($active['pstg'])) {
+        $acac = "id=\"active_pstg\"";
     } else {
         $acac = "";
     }
@@ -38,8 +38,8 @@ if ($KOM_SHOWSIDEMENU == true) {
   <li><a <?=$acac;?> href="<?=dolink("", array("pstg" => ""));?>">Alles</a></li>
   <?php
   foreach ($mainDB->getPledgestatetypegroups() as $value) {
-    if ($value->getID() == $active['pst']) {
-        $acac = "id=\"active_pst\"";
+    if ($value->getID() == $active['pstg']) {
+        $acac = "id=\"active_pstg\"";
     } else {
         $acac = "";
     }

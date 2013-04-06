@@ -103,7 +103,7 @@ a:hover {
     color: white;
     padding: 3px;
 }
-.sidemenu ul.menu li #active_cat, .sidemenu ul.menu li #active_party, .sidemenu ul.menu li #active_pst  {
+.sidemenu ul.menu li #active_cat, .sidemenu ul.menu li #active_party, .sidemenu ul.menu li #active_pstg  {
     background-color: green;
     color: white;
 }
