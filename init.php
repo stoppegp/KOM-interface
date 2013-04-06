@@ -1,4 +1,8 @@
 <?php
+$active['party'] = $_GET['party'];
+$active['cat'] = $_GET['cat'];
+$active['pstg'] = $_GET['pstg'];
+$active['issueid'] = $_GET['issueid'];
 
 $menu = array(
     array(
