@@ -5,7 +5,6 @@ if (!is_numeric($active['issueid'])) $active['issueid'] = 0;
 $database = new Database($dblink);
 $database->setFilter("issues", $active['issueid']);
 $database->loadContent();
-echo "<br><br>";
 foreach ($database->getIssues() as $value) {
     echo "<h2>".$value->getName()."</h2>";
     

@@ -1,7 +1,7 @@
 </div>
 <?
 if ($KOM_SHOWSIDEMENU == true) {
-?>
+?><!--
 <div class="sidemenu">
    <h2>Partei</h2>
   <ul class="menu">
@@ -49,11 +49,13 @@ if ($KOM_SHOWSIDEMENU == true) {
   ?>
   </ul>
 
-</div>
+</div>-->
   <?php
   }
   ?>
+
 <div style="clear: both;"></div>
+
 <div class="footer">&nbsp;</div>
 </div>
 </body>

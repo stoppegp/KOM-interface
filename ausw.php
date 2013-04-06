@@ -1,5 +1,5 @@
 <?php
-$KOM_SHOWSIDEMENU = true;
+$KOM_SHOWSIDEMENU = false;
 
 $database = new Database($dblink);
 

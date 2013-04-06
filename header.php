@@ -11,8 +11,8 @@
     <? echo getStyles(); ?>
   </head>
   <body>
-      <div class="main">
-          <div class="header">
+  <div class="main">
+         <div class="header">
               <h1><? echo $mainDB->getOption("site_title"); ?></h1>
               <ul class="menu">
                 <?php
@@ -33,7 +33,7 @@
                     
                     if (!$val['showonlywhenactive'] || $isactive) {
                     ?>
-                        <li><a <? echo ($isactive) ? "id=\"active_main\"" : ""; ?>  href="<?=dolink($val['file'], $val['args'], $val['clearargs']);?>"><?=$val['text'];?></a></li>
+                        <li><a <? echo ($isactive) ? "id=\"active_main\"" : ""; ?>  href="<?=dolink($val['file'], $val['args'], $val['clearargs']);?>"><?=substr($val['text'], 0, 200);?></a></li>
                     <?
                     }
                 }
@@ -43,6 +43,7 @@
               </ul>
               <div style="clear:both;"></div>
           </div>
+          <div class="backg"></div>
           <?php
             if ($KOM_SHOWSIDEMENU == true) {
           ?>

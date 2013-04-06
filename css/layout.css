@@ -4,9 +4,12 @@ body, html {
     font-family: sans-serif;
     font-size: 12px;
 }
-
-div {
+body {
+    background-color: #bfb;
+}
+* {
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 a {
@@ -19,30 +22,55 @@ a:hover {
 }
 
 .main {
-    width: 1000px;
+    width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-left: 0px solid black;
+    border-right: 0px solid black;
+    border-bottom: 0px solid black;
     padding: 0;
     overflow: auto;
     position: relative;
     left: 0px;
     top: 0px;
+    padding-top: 150px;
     padding-bottom: 40px;
+    background-color: #fcfcfc;
+   
+}
+.backg {
+    position: fixed;
+    width: 1100px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #fcfcfc;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 .header {
-    margin-bottom: 10px;
     padding: 20px;
+    padding-bottom: 0;
+    padding-top: 10px;
+    border-bottom: 5px solid black;
+    background-color: green;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    width: 1100px;
+    height: 150px;
+    
+    
+}
+.header h1 {
+    margin-top: 0;
+    color: white;
 }
 .header ul.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
     clear: both;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
     margin-left: -6px;
     margin-right: -6px;
     overflow: auto;
@@ -56,6 +84,7 @@ a:hover {
     display: block;
     margin: -6px;
     padding: 6px;
+    background-color: white;
 }
 .header ul.menu li #active_main  {
     background-color: green;
@@ -66,44 +95,22 @@ a:hover {
 }
 .content {
     clear: both;
-    width: 100%;
+    width: 800px;
     padding: 20px;
     overflow: auto;
     position: relative;
     left: 0px;
+    float:left;
 }
-
+.contentwide {
+    width: 1000px;
+}
 .sidemenu {
-    width: 30%;
+    width: 300px;
     float: left;
-    border-left: 1px solid black;
-    margin-left: -1px;
     padding: 10px;
-}
-.sidemenu ul {
-    margin: 0;
-    margin-bottom: 20px;
-    padding: 0;
-    padding-top: 5px;
-    border-right: 2px solid green;
-
-}
-.sidemenu ul li {
-    padding: 3px;
-    display: block;
-}
-.sidemenu ul li a {
-    margin: -3px;
-    padding: 3px;
-    display: block;
-}
-.sidemenu h2 {
-    font-size: 1.1em;
-    margin-top: 0;
-    margin-bottom: 0;
-    background-color: green;
-    color: white;
-    padding: 3px;
+    background-color: #bfb;
+    height: 100%;
 }
 .sidemenu ul.menu li #active_cat, .sidemenu ul.menu li #active_party, .sidemenu ul.menu li #active_pstg  {
     background-color: green;
@@ -162,7 +169,8 @@ tr:target .quote{
 }
 
 .footer {
-    width: 998px;
+    width: 1100px;
+    border-top: 5px solid black;
     position: fixed;
     bottom: 0px;
     margin: 0;
