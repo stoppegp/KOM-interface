@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title><?=$KOM_PAGETITLE;?></title>
     <script src="<?=SITE_URL;?>/interface/js/jquery-1.9.1.min.js"></script>
+    <meta name="robots" content="noindex">
     <script src="<?=SITE_URL;?>/interface/js/highcharts.js"></script>
     <? echo getScripts(); ?>
     <link rel="stylesheet" type="text/css" href="<?=SITE_URL;?>/interface/css/layout.css">
