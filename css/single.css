@@ -106,10 +106,6 @@ tr .quote {
 }
 
 
-tr:target, .pledge:target {
-    background-color: #ddd;
-    
-}
 tr:target .quote{
     display: block;
 }
@@ -139,4 +135,14 @@ table.chronik tr td.datum {
 
 table.chronik td a {
 
+}
+
+@keyframes target1 {
+    0% {background-color: transparent;}
+    10% {background-color: #ddd;}
+    100% {background-color: transparent;}
+}
+
+tr:target, .pledge:target  {
+    animation: target1 2s 1;
 }
