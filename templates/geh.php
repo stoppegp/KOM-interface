@@ -1,4 +1,4 @@
-<div class="chronikside">
+<div class="chronikside gebrochen">
 <h2>Gebrochene Versprechen</h2>
 <?=$text_liste2;?>
 </div>

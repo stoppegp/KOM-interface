@@ -25,6 +25,13 @@ $menu = array(
         "active"        =>  array("page" => "chronik"),
         "clearargs"     =>  true,
     ),
+    array(
+        "file"          =>  "custompage",
+        "text"          =>  "Impressum",
+        "args"          =>  array("custompageid" => 1),
+        "active"        =>  array("page" => "custompage", "custompageid" => 1),
+        "clearargs"     =>  true,
+    ),
 );
 
 foreach ($mainDB->getCategories("name", "ASC") as $val) {
@@ -44,5 +51,12 @@ foreach ($mainDB->getCategories("name", "ASC") as $val) {
 registerMenu($menu);
 setRewrite("intRewrite");
 setDoLink("intDoLink");
+
+    foreach ($mainDB->getCategories() as $val) {
+        $catarray[filteruri($val->getName())] = $val->getID();
+    }
+    foreach ($dblink->Select("custompages") as $val) {
+        $cparray[$val->name] = $val->id;
+    }
 
 ?>

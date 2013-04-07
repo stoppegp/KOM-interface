@@ -1,25 +1,28 @@
 <? 
+  
+
 function intRewrite($uri) {
     global $mainDB;
+    global $dblink;
+    global $catarray;
+    global $cparray;
     
     $active['page'] = "home";
     
-    foreach ($mainDB->getCategories() as $val) {
-        $catarray[filteruri($val->getName())] = $val->getID();
-    }
+
     $urisplit = explode("/", $uri);
     
-    if (in_array(filteruri($urisplit[1]), array_keys($catarray))) {
+    if ($urisplit[1] == "liste") {
         unset($active);
         $active['page'] = "list";
-        $active['cat'] = $catarray[filteruri($urisplit[1])];
+        
+        if (in_array(filteruri($urisplit[2]), array_keys($catarray))) {
+            $active['cat'] = $catarray[filteruri($urisplit[2])];
+        }
+        
     }
     
-    if (in_array(preg_replace('![^0-9]!', '', $urisplit[1]), array_values($catarray))) {
-        unset($active);
-        $active['page'] = "list";
-        $active['cat'] = preg_replace('![^0-9]!', '', $urisplit[1]);
-    }
+
     
     if ($urisplit[1] == "chronik") {
         unset($active);
@@ -43,8 +46,23 @@ function intRewrite($uri) {
     if ($urisplit[1] == "gehalten-gebrochen") {
         unset($active);
         $active['page'] = "geh";
-    }   
+    }       
+    
+    if (($urisplit[1] == "seite") && (isset($urisplit[2]))) {
+        unset($active);
+        $active['page'] = "custompage";
+        if (in_array($urisplit[2], array_keys($cparray))) {
+            $active['custompageid'] = $cparray[$urisplit[2]];
+        } else {
+            $active['custompageid'] = $urisplit[2];
+        }
+    } 
 
+    if (in_array($urisplit[1], array_keys($cparray))) {
+        unset($active);
+        $active['page'] = "custompage";
+        $active['custompageid'] = $cparray[$urisplit[1]];
+    }
     
     return $active;
 }
@@ -53,9 +71,9 @@ function intDoLink($page, $array) {
     global $mainDB;
     switch ($page) {
         case "list":
-            $url = "alles/";
+            $url = "liste/";
             if (isset($array['cat'])) {
-                $url = filteruri($mainDB->getCategory($array['cat'])->getName())."/";
+                $url .= filteruri($mainDB->getCategory($array['cat'])->getName())."/";
             }
         break;
         case "chronik":
@@ -69,6 +87,12 @@ function intDoLink($page, $array) {
         break;
         case "geh":
             $url = "gehalten-gebrochen";
+        break;
+        case "custompage":
+            if (isset($array['custompageid'])) {
+                $url = "seite/";
+                $url .= $array['custompageid']."/";
+            }
         break;
         case "home":
             $url = "";

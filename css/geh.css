@@ -6,3 +6,15 @@
 .list ul li.desc {
     display: none;
 }
+.list .ampel {
+    display: none;
+}
+
+.gebrochen .list h3 a {
+    display: block;
+    background: linear-gradient(to bottom, #d00 0%,#a00 100%);
+    color: white;
+    padding: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+}

@@ -23,7 +23,7 @@ h3 {
     background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     color: white;
     padding: 3px;
-    padding-left: 5px;
+    padding-left: 10px;
     font-size: 1.2em;
     font-weight: bold;
     border-left: 10px solid;
@@ -32,6 +32,15 @@ h3 {
     top: 0px;
     overflow: auto;
 
+}
+.pledge .title:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 1px solid black;
+    height: 100%;
+    width: 2x;
 }
 
 .pledge .title .ampel {
@@ -43,6 +52,7 @@ h3 {
     float: right;
     border: 1px solid gray;
     margin-left: 5px;
+    background: linear-gradient(to bottom, #eee 0%,#ccc 100%);
 }
 .pledge .title .ampel span {
     display: block;
@@ -70,7 +80,7 @@ h3 {
 
 .pledge .currentstate {
     padding: 3px;
-    background-color: #eee;
+    //background-color: #eee;
 }
 
 .content .quote {
@@ -139,11 +149,14 @@ table.chronik td a {
 }
 
 @keyframes target1 {
-    0% {background-color: transparent;}
-    10% {background-color: #999; }
-    100% {background-color: transparent; }
+    0% {background-color: transparent;  box-shadow: 0px 0px 0px 0px #ddd; }
+    100% {background-color: #eee; box-shadow: 0px 0px 5px 5px #ddd; }
 }
 
 tr:target, .pledge:target  {
-    animation: target1 2s 1;
+    //animation: target1 1s ease 1;
+    background-color: #eee;
+    box-shadow: 0px 0px 5px 5px #ddd;
+    
+
 }
