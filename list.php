@@ -24,6 +24,10 @@ $databaseGR->loadContent();
 $databaseK->loadContent();
 
 registerStyle('interface/css/list.css', true);
+ob_start();
+include('get_list.php');
+$text_liste = ob_get_contents();
+ob_end_clean();
 
 
     $auswGR = new Analysis($databaseGR);

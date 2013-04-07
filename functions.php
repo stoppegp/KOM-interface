@@ -40,7 +40,11 @@ function intRewrite($uri) {
         $active['page'] = "single";
         $active['issueid'] = $urisplit[2];
     }
-    
+    if ($urisplit[1] == "gehalten-gebrochen") {
+        unset($active);
+        $active['page'] = "geh";
+    }   
+
     
     return $active;
 }
@@ -62,6 +66,9 @@ function intDoLink($page, $array) {
         break;
         case "single":
             $url = "detail/".$array['issueid'];
+        break;
+        case "geh":
+            $url = "gehalten-gebrochen";
         break;
         case "home":
             $url = "";

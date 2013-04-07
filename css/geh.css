@@ -1,0 +1,8 @@
+.chronikside {
+    float: right;
+    width: 50%;
+    padding: 0 10px;
+}
+.list ul li.desc {
+    display: none;
+}
