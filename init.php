@@ -28,6 +28,7 @@ $menu = array(
 );
 
 foreach ($mainDB->getCategories("name", "ASC") as $val) {
+    if ($val->getDisabled()) continue;
     $menua = array(
         "file"          =>  "list",
         "text"          =>  $val->getName(),
