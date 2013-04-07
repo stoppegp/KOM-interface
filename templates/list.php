@@ -63,25 +63,26 @@ if (is_array($database->getIssues("name")) && count($database->getIssues("name")
                     
                     
                     $maingr = $value2->getCurrentPledgeStateType()->getID();
-                    echo '<span class="ampel" title="'.$value2->getCurrentPledgeStateType()->getName().'">';
-                    switch ($maingr) {
-                        case 1: $ampel = array("gray", "gray", "gray"); break;
-                        case 2: $ampel = array("yellow", "yellow", "yellow"); break;
-                        case 3: $ampel = array("green", "green", "gray"); break;
-                        case 4: $ampel = array("green", "green", "green"); break;
-                        case 5: $ampel = array("red", "red", "red"); break;
-                        case 6: $ampel = array("green", "green", "gray"); break;
-                        case 7: $ampel = array("red", "gray", "gray"); break;
-                        case 8: case 10: $ampel = array("red", "red", "red"); break;
-                        case 9: case -1: case -2: $ampel = array("gray", "gray", "gray"); break;
+                    if ($maingr >= 0) {
+                        echo '<span class="ampel" title="'.$value2->getCurrentPledgeStateType()->getName().'">';
+                        switch ($maingr) {
+                            case 1: $ampel = array("gray", "gray", "gray"); break;
+                            case 2: $ampel = array("yellow", "yellow", "yellow"); break;
+                            case 3: $ampel = array("green", "green", "gray"); break;
+                            case 4: $ampel = array("green", "green", "green"); break;
+                            case 5: $ampel = array("red", "red", "red"); break;
+                            case 6: $ampel = array("green", "green", "gray"); break;
+                            case 7: $ampel = array("red", "gray", "gray"); break;
+                            case 8: case 10: $ampel = array("red", "red", "red"); break;
+                            case 9: case -1: case -2: $ampel = array("gray", "gray", "gray"); break;
+                        }
+                        
+                        foreach ($ampel as $ampval) {
+                            echo ' <span class="'.$ampval.'">&nbsp;</span>';
+                        }
+                        
+                        echo '</span>';
                     }
-                    
-                    foreach ($ampel as $ampval) {
-                        echo ' <span class="'.$ampval.'">&nbsp;</span>';
-                    }
-                    
-                    echo '</span>';
-                    
                     echo "<span style=\"color:".$value2->getParty()->getColour()."\">".$value2->getParty()->getName()."</span>: ".$value2->getName();
                     ?>
                     

@@ -38,8 +38,8 @@ $value = array_shift($value0);
         if (is_array($value->getPledgesOfParty($value3->getID()))) {
             foreach ($value->getPledgesOfParty($value3->getID()) as $value2) {
                 echo "<div id=\"pledge-".$value2->getID()."\" class=\"pledge\"><div class=\"title\" style=\"border-color:".$value2->getParty()->getColour()."\" class=\"pledge\">";
-                
-                    if ($value3->getDoValue()) {
+                    $maingr = $value2->getCurrentPledgeStateType()->getID();
+                    if ($value3->getDoValue() && $maingr >= 0) {
                         $maingr = $value2->getCurrentPledgeStateType()->getID();
                         echo '<span class="ampel" title="'.$value2->getCurrentPledgeStateType()->getName().'">';
                         switch ($maingr) {

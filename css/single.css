@@ -42,6 +42,7 @@ h3 {
     background-color: #eee;
     float: right;
     border: 1px solid gray;
+    margin-left: 5px;
 }
 .pledge .title .ampel span {
     display: block;
@@ -139,8 +140,8 @@ table.chronik td a {
 
 @keyframes target1 {
     0% {background-color: transparent;}
-    10% {background-color: #ddd;}
-    100% {background-color: transparent;}
+    10% {background-color: #999; }
+    100% {background-color: transparent; }
 }
 
 tr:target, .pledge:target  {

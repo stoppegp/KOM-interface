@@ -1,3 +1,13 @@
+.chronikside {
+    float: right;
+    width: 50%;
+    padding: 0 10px;
+}
+
+.chronik {
+    width: 740px;
+}
+
 table.chronik {
     font-size: 1.2em;
     width: 100%;
@@ -19,7 +29,13 @@ table.chronik tr td {
     margin-bottom: 5px;
 }
 table.chronik tr td.datum {
+    border-right: 2px solid #999;
+}
+table.chronik.umgesetzt tr td.datum {
     border-right: 2px solid #299a0b;
+}
+table.chronik.gebrochen tr td.datum {
+    border-right: 2px solid red;
 }
 table.chronik tr:hover td.datum {
     border-right: 2px solid white;
