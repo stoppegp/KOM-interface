@@ -16,8 +16,9 @@
               <h1><? echo $mainDB->getOption("site_title"); ?></h1>
               <ul class="menu">
                 <?php
+                $c = 0;
                 foreach ($KOM_MAINMENU as $key => $val) {
-                    
+                    if ($c++ == 10) break;
                     $isactive = false;
                     
                     if (is_array($val['active'])) {

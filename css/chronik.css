@@ -1,0 +1,36 @@
+table.chronik {
+    font-size: 1.2em;
+    width: 100%;
+border-collapse:separate; 
+border-spacing: 0 8px;
+}
+table.chronik tr:hover {
+    background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    margin-bottom: 5px;
+}
+
+table.chronik tr:hover td a {
+    color: white !important;
+}
+
+table.chronik tr td {
+    padding: 10px 6px;
+    border-left: none;
+    margin-bottom: 5px;
+}
+table.chronik tr td.datum {
+    border-right: 2px solid #299a0b;
+}
+table.chronik tr:hover td.datum {
+    border-right: 2px solid white;
+}
+table.chronik td a {
+    display: block;
+    color: black;
+}
+
+
+table.chronik td a {
+    margin: -10px 0;
+    padding: 10px 0;
+}

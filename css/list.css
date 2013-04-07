@@ -7,7 +7,20 @@
 .listside > div {
     background-color: #eee;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
+}
+
+.listside ul.verlauf {
+    list-style-type: none;
+    padding-left: 0px;
+}
+.listside ul.verlauf li, .listside ul.verlauf li a {
+    display: block;
+    padding: 2px;
+}
+
+.listside h2 {
+    margin-top: 0;
 }
 
 .list {
@@ -52,9 +65,10 @@
     display: block;
     padding: 3px;
     margin: -3px;
+    color: black;
 }
 
-.list ul li a:hover span {
+.list ul li a:hover, .list ul li a:hover span {
     color: white !important;
 }
 

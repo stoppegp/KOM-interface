@@ -27,13 +27,13 @@
 <? } ?>
 <div>
 <h2>Letzte Veränderungen:</h2>
-<ul>
+<ul class="verlauf">
 <?php
     $printedids = array();
     $ausw = new Analysis($database);
     foreach ($ausw->getStates("datum", "DESC") as $value) {
         if (!in_array($value->getIssueLink()->getID(), $printedids)) {
-            echo "<li><a href=\"".dolink("single", array("issueid" => $value->getIssueLink()->getID()))."#state-".$value->getID()."\">".$value->getIssueLink()->getName()."</a></li>";
+            echo "<li><a href=\"".dolink("single", array("issueid" => $value->getIssueLink()->getID()))."#state-".$value->getID()."\">".date("d.m.Y", $value->getDatum()).": ".$value->getIssueLink()->getName()."</a></li>";
             $printedids[] = $value->getIssueLink()->getID();
         }
         if (count($printedids) >= 5) break;
