@@ -1,19 +1,19 @@
 <?php
 $KOM_SHOWSIDEMENU = true;
 
-$database = new Database($dblink);
-$databaseGR = new Database($dblink);
-$databaseK = new Database($dblink);
+$database = new Database(KOM::$dblink);
+$databaseGR = new Database(KOM::$dblink);
+$databaseK = new Database(KOM::$dblink);
 
-if (is_numeric($active['cat'])) {
-    $database->setFilter("categories", $active['cat']);
-    $databaseK->setFilter("categories", $active['cat']);
-    $databaseGR->setFilter("categories", $active['cat']);
+if (is_numeric(KOM::$active['cat'])) {
+    $database->setFilter("categories", KOM::$active['cat']);
+    $databaseK->setFilter("categories", KOM::$active['cat']);
+    $databaseGR->setFilter("categories", KOM::$active['cat']);
 }
-if (is_numeric($active['pstg'])) {
-    $database->setFilter("pledgestatetypegroup", $active['pstg']);
-    $databaseK->setFilter("pledgestatetypegroup", $active['pstg']);
-    $databaseGR->setFilter("pledgestatetypegroup", $active['pstg']);
+if (is_numeric(KOM::$active['pstg'])) {
+    $database->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
+    $databaseK->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
+    $databaseGR->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
 }
 
 $databaseGR->setFilter("parties", array(1,2));
@@ -23,7 +23,7 @@ $database->loadContent();
 $databaseGR->loadContent();
 $databaseK->loadContent();
 
-registerStyle('interface/css/list.css', true);
+KOM::registerStyle('interface/css/list.css', true);
 ob_start();
 include('get_list.php');
 $text_liste = ob_get_contents();
@@ -38,7 +38,7 @@ ob_end_clean();
     if (is_array($nr)) {
         $compl = array_sum($nr);
         foreach ($databaseGR->getPledgestatetypegroups() as $value0) {
-            foreach ($databaseGR->getPledgestatetypegroup($value0->getID())->getPledgestatetypeLinks() as $value) {
+            foreach ($databaseGR->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
                 $group_nr[$value0->getID()] += $nr[$value->getID()];
             }
             $group_perc[$value0->getID()] = floor($group_nr[$value0->getID()]/$compl*100);
@@ -61,7 +61,7 @@ ob_end_clean();
     if (is_array($Knr)) {
         $Kcompl = array_sum($Knr);
         foreach ($databaseK->getPledgestatetypegroups() as $value0) {
-            foreach ($databaseK->getPledgestatetypegroup($value0->getID())->getPledgestatetypeLinks() as $value) {
+            foreach ($databaseK->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
                 $Kgroup_nr[$value0->getID()] += $Knr[$value->getID()];
             }
             $Kgroup_perc[$value0->getID()] = floor($Kgroup_nr[$value0->getID()]/$Kcompl*100);
@@ -84,5 +84,5 @@ ob_end_clean();
 
 
 
-include('templates/list.php');
+include('templates/category.php');
 ?>

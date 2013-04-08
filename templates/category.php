@@ -30,9 +30,9 @@
     $printedids = array();
     $ausw = new Analysis($database);
     foreach ($ausw->getStates("datum", "DESC") as $value) {
-        if (!in_array($value->getIssueLink()->getID(), $printedids)) {
-            echo "<li><a href=\"".dolink("single", array("issueid" => $value->getIssueLink()->getID()))."#state-".$value->getID()."\">".date("d.m.Y", $value->getDatum()).": ".$value->getIssueLink()->getName()."</a></li>";
-            $printedids[] = $value->getIssueLink()->getID();
+        if (!in_array($value->getIssue()->getID(), $printedids)) {
+            echo "<li><a href=\"".KOM::dolink("single", array("issueid" => $value->getIssue()->getID()))."#state-".$value->getID()."\">".date("d.m.Y", $value->getDatum()).": ".$value->getIssue()->getName()."</a></li>";
+            $printedids[] = $value->getIssue()->getID();
         }
         if (count($printedids) >= 5) break;
     }

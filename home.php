@@ -1,6 +1,6 @@
 <?php
 /* Statistik für Grün/Rot */
-    $databaseGR = new Database($dblink);
+    $databaseGR = new Database(KOM::$dblink);
     $databaseGR->setFilter("parties", array(1,2));
     $databaseGR->loadContent();
 
@@ -10,7 +10,7 @@
     $nrGR = $auswGR->getCurrentNumberOfPledgestatetypes();
     
     foreach ($databaseGR->getPledgestatetypegroups() as $value0) {
-        foreach ($databaseGR->getPledgestatetypegroup($value0->getID())->getPledgestatetypeLinks() as $value) {
+        foreach ($databaseGR->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
             $group_nrGR[$value0->getID()] += $nrGR[$value->getID()];
         }
     }
@@ -19,7 +19,7 @@
 
 /* Statistik für die Koalition */
 
-    $databaseK = new Database($dblink);
+    $databaseK = new Database(KOM::$dblink);
     $databaseK->setFilter("parties", array(3));
     $databaseK->loadContent();
 
@@ -29,7 +29,7 @@
     $nrK = $auswK->getCurrentNumberOfPledgestatetypes();
     
     foreach ($databaseK->getPledgestatetypegroups() as $value0) {
-        foreach ($databaseK->getPledgestatetypegroup($value0->getID())->getPledgestatetypeLinks() as $value) {
+        foreach ($databaseK->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
             $group_nrK[$value0->getID()] += $nrK[$value->getID()];
         }
     }
@@ -40,7 +40,7 @@
     foreach ($databaseGR->getPledgestatetypegroups() as $value0) {
         $tempar['name'] = $value0->getName();
         $tempar['color'] = $value0->getColour();
-        $tempar['url'] = dolink("list", array("pstg" => $value0->getID()));
+        $tempar['url'] = KOM::dolink("category", array("pstg" => $value0->getID()));
         $tempar['y'] = $group_nrGR[$value0->getID()];
         $chart1data[] = $tempar;
     }
@@ -65,7 +65,7 @@
         $temp0 = $auswGR->getNumberOfPledgestatetypesAtDatum($a);
         if (is_array($temp0)) {
             foreach ($databaseGR->getPledgestatetypegroups() as $val0) {
-                foreach ($databaseGR->getPledgestatetypegroup($val0->getID())->getPledgestatetypeLinks() as $value) {
+                foreach ($databaseGR->getPledgestatetypegroup($val0->getID())->getPledgestatetypes() as $value) {
                     if (!isset($temp0[$value->getID()])) $temp0[$value->getID()] = "0";
                     $c2d[$val0->getID()][$a] += $temp0[$value->getID()]*$value->getMultipl();
                 }
@@ -88,7 +88,7 @@
             'name' => $databaseGR->getPledgestatetypegroup($key)->getName(),
             'color' => $databaseGR->getPledgestatetypegroup($key)->getColour(),
             'fillOpacity' => "0.5",
-            'url' => dolink("list", array("pstg" => $key))
+            'url' => KOM::dolink("category", array("pstg" => $key))
         );
         if (!array_sum($val) == 0) {
             foreach ($val as $key2 => $val2) {
@@ -102,7 +102,7 @@
                 $valbef = $val2;
             }
             $temp01 = $auswGR->getNumberOfPledgestatetypesAtDatum($now);
-            foreach ($databaseGR->getPledgestatetypegroup($key)->getPledgestatetypeLinks() as $value) {
+            foreach ($databaseGR->getPledgestatetypegroup($key)->getPledgestatetypes() as $value) {
                 if (!isset($temp01[$value->getID()])) $temp01[$value->getID()] = "0";
                 $temp010[$key] += $temp01[$value->getID()];
             }

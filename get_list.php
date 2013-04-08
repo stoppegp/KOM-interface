@@ -3,7 +3,7 @@
 if (is_array($database->getIssues("name")) && count($database->getIssues("name")) > 0) {
 
     foreach ($database->getIssues("name") as $value) {
-        echo "<h3><a href=\"".dolink("single", array("issueid" => $value->getID()))."\"><strong>".$value->getName()."</strong></a></h3><ul>";
+        echo "<h3><a href=\"".KOM::dolink("single", array("issueid" => $value->getID()))."\"><strong>".$value->getName()."</strong></a></h3><ul>";
         if ($value->getDesc()) {
             echo "<li class=\"desc\">".$value->getDesc()."</li>";
         }
@@ -11,7 +11,7 @@ if (is_array($database->getIssues("name")) && count($database->getIssues("name")
             if ($value3->getDoValue() == 0) continue;
             if (is_array($value->getPledgesOfParty($value3->getID()))) {
                 foreach ($value->getPledgesOfParty($value3->getID()) as $value2) {
-                    echo "<li class=\"pledge\"><a href=\"".dolink("single", array("issueid" => $value->getID()))."#pledge-".$value2->getID()."\">";
+                    echo "<li class=\"pledge\"><a href=\"".KOM::dolink("single", array("issueid" => $value->getID()))."#pledge-".$value2->getID()."\">";
                     
                     
                     $maingr = $value2->getCurrentPledgeStateType()->getID();

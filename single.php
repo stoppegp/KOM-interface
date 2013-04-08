@@ -1,11 +1,11 @@
 
 <?php
-registerStyle('interface/css/single.css', true);
+KOM::registerStyle('interface/css/single.css', true);
 
-if (!is_numeric($active['issueid'])) $active['issueid'] = 0;
+if (!is_numeric(KOM::$active['issueid'])) KOM::$active['issueid'] = 0;
 
-$database = new Database($dblink);
-$database->setFilter("issues", $active['issueid']);
+$database = new Database(KOM::$dblink);
+$database->setFilter("issues", KOM::$active['issueid']);
 $database->loadContent();
 
 $value0 = $database->getIssues();
