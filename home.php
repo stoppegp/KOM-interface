@@ -36,7 +36,7 @@
     }
 
     /* Diagramm erstellen */
-        $chart = new KOM_Highchart("GR_verteilung");
+        $chart = new sto_highchart_parser("GR_verteilung");
         $chart->options['title']['text'] = "";
         $chart->options['plotOptions']['pie']['dataLabels']['enabled'] = false;
         $chart->options['plotOptions']['pie']['dataLabels']['color'] = "#f00";
@@ -49,7 +49,7 @@
     
     /* Diagramm erstellen */
             
-        $chart2 = new KOM_Highchart("GR_verlauf");
+        $chart2 = new sto_highchart_parser("GR_verlauf");
         $chart2->options['chart']['type'] = "area";
         $chart2->options['title']['text'] = "";
         $chart2->options['plotOptions']['area']['stacking'] = "normal";
@@ -62,7 +62,8 @@
         $chart2->options['xAxis']['type'] = "datetime";
         $chart2->options['yAxis']['min'] = 0;
         $chart2->options['yAxis']['endOnTick'] = false;
-       // $chart2->activateLinks("series");
+        $chart2->options['yAxis']['title']['text'] = "";
+        $chart2->activateLinks("custom", "http://www.google.de");
         $chart2->options['series'] = $auswGR->getChartseriesTrendGroup();
 
     

@@ -5,8 +5,8 @@
 <p>Aktuell beobachten wir <?php echo array_sum($group_nrGR); ?> Grün-Rote Wahlversprechen. Davon wurden <?=$group_nrGR[2];?> Versprechen gehalten. <?=$group_nrGR[3];?> Versprechen wurden gebrochen.</p>
 <p>Von den <?php echo array_sum($group_nrK); ?> Versprechen im Koalitionsvertrag wurden bisher <?=$group_nrK[2];?> umgesetzt.</p>
 
-<div id="GR_verlauf" style="width: 65%;float:left;"></div>
-<div id="GR_verteilung" style="width: 35%;float:left;"></div>
+<div id="GR_verlauf" style="width: 65%;height: 300px;float:left;"></div>
+<div id="GR_verteilung" style="width: 35%;height: 300px;float:left;"></div>
 
 <h2>Fehler entdeckt?</h2>
 <p>Das Kretschmann-O-Meter wird erst mit der nächsten Landtagswahl endgültig fertig sein, bis dahin kann es täglich Aktualisierungen und Erweiterungen geben. Da ständig neue politische Entscheidungen gefällt werden, können wir mit ehrenamtlicher Arbeit auch nicht auf die Minute aktuell sein. Sie haben einen Fehler entdeckt oder möchten etwas ergänzen? Dann melden Sie sich bei uns! Wir freuen uns über jede Unterstützung.</p>

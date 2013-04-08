@@ -16,6 +16,8 @@ if (is_numeric(KOM::$active['pstg'])) {
     $databaseGR->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
 }
 
+$catname = KOM::$mainDB->getCategory(KOM::$active['cat'])->getName();
+
 $databaseGR->setFilter("parties", array(1,2));
 $databaseK->setFilter("parties", array(3));
 

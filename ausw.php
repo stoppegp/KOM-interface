@@ -31,7 +31,7 @@ foreach ($database->getPledgestatetypes() as $value) {
 }
 ksort($chart1array);
 
-$chart = new KOM_Highchart("ausw_verteilung");
+$chart = new sto_highchart_parser("ausw_verteilung");
 $chart->options['title']['text'] = "";
 $chart->options['plotOptions']['pie']['animation'] = false;
 $chart->activateLinks();
@@ -93,7 +93,7 @@ foreach ($c2d as $key => $val) {
 }
 krsort($arsno);
 
-$chart2 = new KOM_Highchart("ausw_verlauf");
+$chart2 = new sto_highchart_parser("ausw_verlauf");
 $chart2->options['chart']['type'] = "area";
 $chart2->options['chart']['zoomType'] = "x";
 $chart2->options['title']['text'] = "";
@@ -113,6 +113,7 @@ foreach ($arsno as $val) {
 }
 
 ?>
+<h1>Statistik</h1>
 <div id="ausw_verteilung"></div>
 <div id="ausw_verlauf"></div>
 <script>

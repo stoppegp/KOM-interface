@@ -7,7 +7,6 @@
     background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     color: white;
     padding: 5px;
-    font-size: 1.1em;
     font-weight: bold;
 }
 
@@ -17,7 +16,6 @@
     margin-top: 3px;
 }
 .list ul li {
-    font-size: 1.2em;
     padding: 3px;
     margin-top: 3px;
     display: block;
@@ -47,31 +45,3 @@
     
 }
 
-.list .ampel {
-    width: 60px;
-    height: 20px;
-    padding: 2px;
-    border-radius: 10px;
-    background-color: #eee;
-    float: right;
-    border: 1px solid gray;
-    background: linear-gradient(to bottom, #eee 0%,#ccc 100%);
-}
-.list .ampel span {
-    display: block;
-    float: left;
-    width: 14px;
-    margin: 0 2px;
-    height: 14px;
-    border-radius: 7px;
-    background-color: gray;
-}
-.list .ampel .green {
-    background-color: #0f0;
-}
-.list .ampel .red {
-    background-color: #f00;
-}
-.list .ampel .yellow {
-    background-color: #dd0;
-}

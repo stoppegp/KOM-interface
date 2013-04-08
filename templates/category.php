@@ -1,3 +1,4 @@
+<h1><?=$catname;?></h1>
 <div class="listside">
 <?php if (is_array($nr)) { ?>
 <div>

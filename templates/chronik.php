@@ -1,3 +1,4 @@
+<h1>Chronik</h1>
 <div class="chronikside">
 <h2>Zuletzt gebrochene Versprechen</h2>
 <?=$text_gebrochen;?>

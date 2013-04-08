@@ -1,3 +1,6 @@
+<?php
+KOM::registerStyle('interface/css/getlist.css', true);
+?>
 <div class="list">
 <?
 if (is_array($database->getIssues("name")) && count($database->getIssues("name")) > 0) {
