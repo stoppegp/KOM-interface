@@ -8,7 +8,7 @@ $c = 0;
     }
     
     $databaseGR = new Database(KOM::$dblink);
-    $databaseGR->setFilter("parties", array(1,2));
+    //$databaseGR->setFilter("parties", array(1,2));
     $databaseGR->loadContent();
     $auswGR = new Analysis($databaseGR);
     

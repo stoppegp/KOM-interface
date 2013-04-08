@@ -1,7 +1,7 @@
 <?php
 $page[0]['name'] = "chronik";
 $page[0]['file'] = "chronik";
-$page[1]['name'] = "ausw";
+$page[1]['name'] = "statistik";
 $page[1]['file'] = "ausw";
 $page[2]['name'] = "gehalten-gebrochen";
 $page[2]['file'] = "geh";
