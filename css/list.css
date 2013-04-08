@@ -106,39 +106,3 @@
 .list .ampel .yellow {
     background-color: #dd0;
 }
-.meter {
-background-color: #1a1a1a;
-	height: 25px;
-	width: 100%;
-	border-radius: 25px;
-    background-color: #ddd;
-    border: 1px solid gray;
-    overflow: hidden;
-    position: relative;
-    box-shadow: inset 0px 0px 8px 8px #aaa;
-}
-
-.meter span {
-    display: block;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    animation: expand 1s 1;
-}
-
-.meter span.green {
-float: left;
-border-top-left-radius: 25px;
-border-bottom-left-radius: 25px;
-background: linear-gradient(to bottom, #0f0 0%,#090 100%);
-}
-.meter span.red {
-float: right;
-border-top-right-radius: 25px;
-border-bottom-right-radius: 25px;
-background: linear-gradient(to bottom, #f00 0%,#900 100%);
-}
-
-@keyframes expand {
-   0% { width: 0; }
-}

@@ -3,6 +3,8 @@ $page[0]['name'] = "chronik";
 $page[0]['file'] = "chronik";
 $page[1]['name'] = "ausw";
 $page[1]['file'] = "ausw";
+$page[2]['name'] = "gehalten-gebrochen";
+$page[2]['file'] = "geh";
 KOM::registerPages($page);
 
 
@@ -27,15 +29,16 @@ $menu = array(
         "clearargs"     =>  true,
     ),
     array(
-        "page"          =>  "custompage",
-        "text"          =>  "Impressum",
-        "args"          =>  array("custompageid" => 1),
-        "active"        =>  array("page" => "custompage", "custompageid" => 1),
+        "page"          =>  "geh",
+        "text"          =>  "Gehalten / Gebrochen",
+        "active"        =>  array("page" => "geh"),
         "clearargs"     =>  true,
     ),
+    
 );
-
+$c=0;
 foreach (KOM::$mainDB->getCategories("name", "ASC") as $val) {
+    if ($c++ == 5) break;
     if ($val->getDisabled()) continue;
     $menua = array(
         "page"          =>  "category",
@@ -48,6 +51,14 @@ foreach (KOM::$mainDB->getCategories("name", "ASC") as $val) {
     );
     $menu[] = $menua;
 }
+
+$menu[] = array(
+        "page"          =>  "custompage",
+        "text"          =>  "Impressum",
+        "args"          =>  array("custompageid" => 1),
+        "active"        =>  array("page" => "custompage", "custompageid" => 1),
+        "clearargs"     =>  true,
+    );
 
 KOM::registerMenu("main", $menu);
 
