@@ -38,13 +38,15 @@
     /* Diagramm erstellen */
         $chart = new sto_highchart_parser("GR_verteilung");
         $chart->options['title']['text'] = "";
+        $chart->options['chart']['plotShadow'] = true;
         $chart->options['plotOptions']['pie']['dataLabels']['enabled'] = false;
         $chart->options['plotOptions']['pie']['dataLabels']['color'] = "#f00";
         $chart->options['plotOptions']['pie']['dataLabels']['connectorColor'] = "#00f";
         $chart->options['plotOptions']['pie']['animation'] = false;
+        $chart->options['plotOptions']['pie']['shadow'] = true;
         //$chart->activateLinks();
         
-        $chart->options['series'] = $auswGR->getChartseriesPieGroup();
+        $chart->options['series'] = $auswGR->getChartseriesPieGroup(false, array(2 => array("sliced" => true)));
                                 
     
     /* Diagramm erstellen */
