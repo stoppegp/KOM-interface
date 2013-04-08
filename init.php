@@ -1,10 +1,11 @@
 <?php
-include_once('helpers/sto-highchart-parser.class.php');
+$page[0]['name'] = "chronik";
+$page[0]['file'] = "chronik";
+$page[1]['name'] = "ausw";
+$page[1]['file'] = "ausw";
+KOM::registerPages($page);
 
-KOM::$active['party'] = $_GET['party'];
-KOM::$active['cat'] = $_GET['cat'];
-KOM::$active['pstg'] = $_GET['pstg'];
-KOM::$active['issueid'] = $_GET['issueid'];
+
 
 $menu = array(
     array(
