@@ -51,13 +51,10 @@ foreach (KOM::$mainDB->getCategories("name", "ASC") as $val) {
     );
     $menu[] = $menua;
 }
-
 $menu[] = array(
-        "page"          =>  "custompage",
-        "text"          =>  "Impressum",
-        "args"          =>  array("custompageid" => 1),
-        "active"        =>  array("page" => "custompage", "custompageid" => 1),
-        "clearargs"     =>  true,
+        "page"          =>  "report",
+        "text"          =>  "Fehler melden",
+        "active"        =>  array("page" => "report"),
     );
 
 KOM::registerMenu("main", $menu);
