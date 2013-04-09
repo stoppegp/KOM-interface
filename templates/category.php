@@ -1,30 +1,23 @@
 <h1><?=$catname;?></h1>
 <div class="listside">
+<div class="bggreen">
+<p><strong>In dieser Kategorie:</strong></p>
 <?php if (is_array($nr)) { ?>
-<div>
-<h2>Wahlversprechen:</h1>
     <div class="meter gradient">
         <? if ($group_perc[2] > 0) { ?><span class="green" style="width:<? echo $group_perc[2]; ?>%">&nbsp;</span><? } ?>
         <? if ($group_perc[3] > 0) { ?><span class="red" style="width:<? echo $group_perc[3]; ?>%">&nbsp;</span><? } ?>
     </div>
-    <ul>
-        <li><?=$group_nr[2];?> Versprechen wurden umgesetzt (<?=$group_perc[2];?>%)</li>
-        <li><?=$group_nr[3];?> Versprechen wurden gebrochen (<?=$group_perc[3];?>%)</li>
-        <li>Bei <?=$group_nr[1];?> Versprechen ist noch nichts passiert (<?=$group_perc[1];?>%)</li>
-    </ul>
-</div>
+    <p>Von <strong><?=$compl;?> Wahlversprechen</strong> wurden bisher <strong><?=$group_nr[2];?> Versprechen (<?=$group_perc[2];?>%)</strong> umgesetzt. <strong><?=$group_nr[3];?> Versprechen (<?=$group_perc[3];?>%)</strong> wurden gebrochen.</p>
 <? } ?>
 <?php if (is_array($Knr)) { ?>
-<div>
-<h2>Koalitionsvertrag:</h1>
     <div class="meter gradient">
         <? if ($Kgroup_perc[2] > 0) { ?><span class="green" style="background-color:#0f0;width:<? echo $Kgroup_perc[2]; ?>%">&nbsp;</span><? } ?>
         <? if ($Kgroup_perc[3] > 0) { ?><span class="red" style="background-color:red;width:<? echo $Kgroup_perc[3]; ?>%">&nbsp;</span><? } ?>
     </div>
     <p>Von <strong><?=$Kcompl;?> Punkten</strong> im Koalitionsvertrag wurden bisher <strong><?=$Kgroup_nr[2];?></strong> umgesetzt. </p>
-</div>
 <? } ?>
-<div>
+</div>
+<div class="bggray">
 <h2>Letzte Veränderungen:</h2>
 <ul class="verlauf">
 <?php

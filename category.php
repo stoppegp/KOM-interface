@@ -1,6 +1,4 @@
 <?php
-$KOM_SHOWSIDEMENU = true;
-
 $database = new Database(KOM::$dblink);
 $databaseGR = new Database(KOM::$dblink);
 $databaseK = new Database(KOM::$dblink);

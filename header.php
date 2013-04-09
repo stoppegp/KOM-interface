@@ -1,14 +1,8 @@
 <?php
 $c = 0;
     
-    foreach (KOM::getMenu("main") as $value) {
-        $text_menu .= "<li><a ";
-        $text_menu .= ($value['active']) ? "id=\"active_main\"" : ""; 
-        $text_menu .= "href=\"".$value['link']."\">".$value['text']."</a></li>";
-    }
     
     $databaseGR = new Database(KOM::$dblink);
-    //$databaseGR->setFilter("parties", array(1,2));
     $databaseGR->loadContent();
     $auswGR = new Analysis($databaseGR);
     

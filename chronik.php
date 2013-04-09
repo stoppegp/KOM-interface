@@ -1,6 +1,5 @@
 <?php
-$KOM_SHOWSIDEMENU = false;
-KOM::registerStyle('interface/css/chronik.css', true);
+
 
 $order0 = array(
     6 => 1,
@@ -38,12 +37,8 @@ $c2d = array();
 <?
 if (is_array($ausw->getStates("datum", "DESC")) && count($ausw->getStates("datum", "DESC")) > 0) {
     
-     ob_start();
-
-    echo "<table class=\"chronik\">";
     foreach ($ausw->getStates("datum", "DESC") as $value) {
-            echo "<tr id=\"state-".$value->getID()."\" style=\"vertical-align:top;\"><td class=\"datum\"><a href=\"".KOM::dolink("single", array("issueid" => $value->getIssue()->getID()))."#state-".$value->getID()."\">".date("d.m.Y", $value->getDatum())."</a></td><td><a href=\"".KOM::dolink("single", array("issueid" => $value->getIssue()->getID()))."#state-".$value->getID()."\">".$value->getIssue()->getName().":<br><strong>".$value->getName()."</strong></a></td>";
-            echo "</tr>";
+            $states[] = $value;
 
     
     
@@ -71,35 +66,10 @@ if (is_array($ausw->getStates("datum", "DESC")) && count($ausw->getStates("datum
         }
     }
     
-    echo "</table>";
-    
-    $text_states=ob_get_contents();
-    ob_clean();
-    $c = 0;
-    echo "<table class=\"chronik umgesetzt\">";
-    foreach ($pledgearray_geh as $val) {
-        if ($c++ > 5) break;
-                echo "<tr id=\"pledge-\" style=\"vertical-align:top;\"><td class=\"datum\"><a href=\"".KOM::dolink("single", array("issueid" => $val['pledge']->getIssue()->getID()))."#pledge-".$val['pledge']->getID()."\">".date("d.m.Y", $val['datum'])."</a></td><td><a href=\"".KOM::dolink("single", array("issueid" => $val['pledge']->getIssue()->getID()))."#pledge-".$val['pledge']->getID()."\">".$val['pledge']->getParty()->getName().": <strong>".$val['pledge']->getName()."</strong></a></td>";
-                echo "</tr>";
-    }
-    echo "</table>";
-    $text_gehalten=ob_get_contents();
-    
-    ob_clean();
-    $c=0;
-    echo "<table class=\"chronik gebrochen\">";
-    foreach ($pledgearray_geb as $val) {
-        if ($c++ > 5) break;
-                echo "<tr id=\"pledge-\" style=\"vertical-align:top;\"><td class=\"datum\"><a href=\"".KOM::dolink("single", array("issueid" => $val['pledge']->getIssue()->getID()))."#pledge-".$val['pledge']->getID()."\">".date("d.m.Y", $val['datum'])."</a></td><td><a href=\"".KOM::dolink("single", array("issueid" => $val['pledge']->getIssue()->getID()))."#pledge-".$val['pledge']->getID()."\">".$val['pledge']->getParty()->getName().": <strong>".$val['pledge']->getName()."</strong></a></td>";
-    }
-    echo "</table>";
-    $text_gebrochen=ob_get_contents();
-    
-    ob_end_clean();
+ include('templates/chronik.php'); 
 } else {
     echo "Keine Einträge vorhanden.";
 }
 
 ?>
 
-<? include('templates/chronik.php'); ?>

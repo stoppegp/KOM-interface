@@ -10,10 +10,16 @@
     display: none;
 }
 
+.gebrochen .list h3 {
+    background-color: #d00;
+    background: -moz-linear-gradient(to bottom, #d00 0%,#a00 100%);
+background: -o-linear-gradient(to bottom, #d00 0%,#a00 100%);
+background: -webkit-linear-gradient(to bottom, #d00 0%,#a00 100%);
+background: linear-gradient(to bottom, #d00 0%,#a00 100%);
+}
+
 .gebrochen .list h3 a {
     display: block;
-    background-color: #d00;
-    background: linear-gradient(to bottom, #d00 0%,#a00 100%);
     color: white;
     padding: 5px;
     font-weight: bold;

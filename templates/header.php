@@ -13,16 +13,24 @@
   <body>
   <div class="main">
          <div class="header">
-              <h1><? echo KOM::$mainDB->getOption("site_title"); ?></h1>
+            <img class="headerimg" src="<?=KOM::$site_url;?>/interface/images/kretschmann.png" als="Kretschmann" />
+              <div class="title">
+                  <h1><? echo KOM::$mainDB->getOption("site_title"); ?></h1>
+                  <h2>Wahlversprechen auf dem Prüfstand</h2>
+              </div>
                   <div class="meter gradient" style="width: 200px;">
                         <? if ($group_perc[2] > 0) { ?><span class="green" style="width:<? echo $group_perc[2]; ?>%">&nbsp;</span><? } ?>
                         <? if ($group_perc[3] > 0) { ?><span class="red" style="width:<? echo $group_perc[3]; ?>%">&nbsp;</span><? } ?>
                     </div>
               <ul class="menu">
-                <? echo $text_menu; ?>
-              
-              
-              
+                <?php
+                    foreach (KOM::getMenu("main") as $value) {
+                        echo "<li><a ";
+                        echo ($value['active']) ? "id=\"active_main\"" : ""; 
+                        echo "href=\"".$value['link']."\">".$value['text']."</a></li>";
+                    }
+                ?>
+
               </ul>
           </div>
           <div class="content">

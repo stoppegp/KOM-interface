@@ -2,13 +2,15 @@
     margin-bottom: 0;
     padding-bottom: 0;
 }
+.list h3 {
+background: -moz-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+background: -o-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+background: -webkit-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+background: linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+}
 .list h3 a {
     display: block;
-    background-color: #5ead48;
-    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    
     color: white;
     padding: 5px;
     font-weight: bold;

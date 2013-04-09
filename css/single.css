@@ -27,10 +27,10 @@ h3 {
     top: 0px;
     overflow: auto;
     background-color: #5ead48;
-    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -moz-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+    background: -o-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+    background: -webkit-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+    background: linear-gradient(to bottom, #339a01 0%,#17b500 100%);
     color: white;
     padding: 5px;
     padding-left: 10px;
@@ -121,10 +121,10 @@ h3 {
 }
 .chronik .state > .datum {
     background-color: #5ead48;
-    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -moz-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+    background: -o-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+    background: -webkit-linear-gradient(to bottom, #339a01 0%,#17b500 100%);
+    background: linear-gradient(to bottom, #339a01 0%,#17b500 100%);
     color: white;
 }
 .chronik .state > .text {

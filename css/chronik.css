@@ -15,15 +15,18 @@ border-spacing: 0 8px;
 }
 table.chronik tr:hover {
     background-color: #5ead48;
-    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
-    background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -webkit-linear-gradient(to bottom, #0e7500 0%,#018604 100%);
+background: -o-linear-gradient(to bottom, #0e7500 0%,#018604 100%);
+background: -moz-linear-gradient(to bottom, #0e7500 0%,#018604 100%);
+background: linear-gradient(to bottom, #0e7500 0%,#018604 100%);
     margin-bottom: 5px;
 }
 
 table.chronik tr:hover td a {
     color: white !important;
+}
+table.chronik tr td a:hover {
+    background: transparent;
 }
 
 table.chronik tr td {

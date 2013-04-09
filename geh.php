@@ -20,9 +20,6 @@ include('get_list.php');
 $text_liste2 = ob_get_contents();
 ob_end_clean();
 
-KOM::registerStyle('interface/css/getlist.css', true);
-KOM::registerStyle('interface/css/geh.css', true);
-
 
 include('templates/geh.php');
 

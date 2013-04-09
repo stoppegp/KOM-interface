@@ -1,6 +1,4 @@
 <?php
-$KOM_SHOWSIDEMENU = false;
-
 $database = new Database(KOM::$dblink);
 
 if (is_numeric(KOM::$active['cat'])) {
@@ -112,13 +110,6 @@ foreach ($arsno as $val) {
     $chart2->options['series'][] = $val;
 }
 
+include('templates/ausw.php');
+
 ?>
-<h1>Statistik</h1>
-<div id="ausw_verteilung"></div>
-<div id="ausw_verlauf"></div>
-<script>
-<?php
-echo $chart->render();
-echo $chart2->render();
-?>
-</script>
