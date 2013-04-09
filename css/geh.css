@@ -12,6 +12,7 @@
 
 .gebrochen .list h3 a {
     display: block;
+    background-color: #d00;
     background: linear-gradient(to bottom, #d00 0%,#a00 100%);
     color: white;
     padding: 5px;

@@ -6,8 +6,8 @@ body, html {
 }
 
 body {
-    background-color: #aaa;
-    background: linear-gradient(to bottom, #eaeaea 0%,#fafafa 100%);
+    background-color: #eaeaea;
+    background: -webkit-linear-gradient(to bottom, #eaeaea 0%,#fafafa 100%); background: -o-linear-gradient(to bottom, #eaeaea 0%,#fafafa 100%); background: -moz-linear-gradient(to bottom, #eaeaea 0%,#fafafa 100%); background: linear-gradient(to bottom, #eaeaea 0%,#fafafa 100%);
     background-attachment: fixed;
 }
 * {
@@ -28,6 +28,10 @@ a {
     color: green;
 }
 a:hover {
+    background-color: #5ead48;
+    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     color: white;
 }
@@ -67,6 +71,10 @@ a:hover {
     position: absolute;
     bottom: 0px;
     width: 100%;
+    background-color: #5ead48;
+    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%); /* W3C */
 }
 
@@ -108,9 +116,17 @@ a:hover {
 }
 
 .header ul.menu li #active_main  {
+    background-color: #006e2e;
+    background: -moz-linear-gradient(to top, #006e2e 0%,#4da086 100%);
+    background: -o-linear-gradient(to top, #006e2e 0%,#4da086 100%);
+    background: -webkit-linear-gradient(to top, #006e2e 0%,#4da086 100%);
     background: linear-gradient(to top, #006e2e 0%,#4da086 100%);
 }
 .header ul.menu li a:hover {
+    background-color: #006e2e;
+    background: -moz-linear-gradient(to top, #006e2e 0%,#4da086 100%);
+    background: -o-linear-gradient(to top, #006e2e 0%,#4da086 100%);
+    background: -webkit-linear-gradient(to top, #006e2e 0%,#4da086 100%);
     background: linear-gradient(to top, #006e2e 0%,#4da086 100%);
 }
 .content {
@@ -232,7 +248,7 @@ h2 {
 }
 
 .meter {
-background-color: #1a1a1a;
+    background-color: #1a1a1a;
 	height: 25px;
 	width: 100%;
 	border-radius: 10px;
@@ -255,12 +271,20 @@ background-color: #1a1a1a;
 float: left;
 border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;
+background-color: #0f0;
+background: -moz-linear-gradient(to bottom, #0f0 0%,#090 100%);
+background: -o-linear-gradient(to bottom, #0f0 0%,#090 100%);
+background: -webkit-linear-gradient(to bottom, #0f0 0%,#090 100%);
 background: linear-gradient(to bottom, #0f0 0%,#090 100%);
 }
 .meter span.red {
 float: right;
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
+background-color: #f00;
+background: -moz-linear-gradient(to bottom, #f00 0%,#900 100%);
+background: -o-linear-gradient(to bottom, #f00 0%,#900 100%);
+background: -webkit-linear-gradient(to bottom, #f00 0%,#900 100%);
 background: linear-gradient(to bottom, #f00 0%,#900 100%);
 }
 
@@ -298,6 +322,7 @@ border-bottom-right-radius: 10px;
     float: right;
     border: 1px solid gray;
     margin-left: 5px;
+    background-color: #eee;
     background: linear-gradient(to bottom, #eee 0%,#ddd 100%);
 }
 .ampel span {

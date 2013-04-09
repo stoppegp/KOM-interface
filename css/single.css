@@ -26,6 +26,10 @@ h3 {
     position: relative;
     top: 0px;
     overflow: auto;
+    background-color: #5ead48;
+    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     color: white;
     padding: 5px;
@@ -116,6 +120,10 @@ h3 {
     padding: 7px;
 }
 .chronik .state > .datum {
+    background-color: #5ead48;
+    background: -webkit-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -moz-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
+    background: -o-linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     background: linear-gradient(to bottom, #5ead48 0%,#299a0b 100%);
     color: white;
 }
