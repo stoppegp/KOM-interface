@@ -8,12 +8,14 @@ $c = 0;
     
     unset($group_nr);
     unset($group_perc);
-    
+    $group_nr = array();
+	$group_perc = array();
     /* Aktuelle Verteilung */
     $nr = $auswGR->getCurrentNumberOfPledgestatetypes();
     if (is_array($nr)) {
         $compl = array_sum($nr);
         foreach ($databaseGR->getPledgestatetypegroups() as $value0) {
+			$group_nr[$value0->getID()] = 0;
             foreach ($databaseGR->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
                 $group_nr[$value0->getID()] += $nr[$value->getID()];
             }

@@ -9,8 +9,13 @@
     /* Aktuelle Verteilung */
     $nrGR = $auswGR->getCurrentNumberOfPledgestatetypes();
     
+	$group_nrGR = array();
+	
     foreach ($databaseGR->getPledgestatetypegroups() as $value0) {
         foreach ($databaseGR->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
+			if (!isset($group_nrGR[$value0->getID()])) {
+				$group_nrGR[$value0->getID()] = 0;
+			}
             $group_nrGR[$value0->getID()] += $nrGR[$value->getID()];
         }
     }
@@ -28,10 +33,15 @@
     
     /* Aktuelle Verteilung */
     $nrK = $auswK->getCurrentNumberOfPledgestatetypes();
-    
+    $group_nrK = array();
     foreach ($databaseK->getPledgestatetypegroups() as $value0) {
         foreach ($databaseK->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
-            $group_nrK[$value0->getID()] += $nrK[$value->getID()];
+			if (!isset($group_nrK[$value0->getID()])) {
+				$group_nrK[$value0->getID()] = 0;
+			}
+			if (isset($nrK[$value->getID()])) {
+				$group_nrK[$value0->getID()] += $nrK[$value->getID()];
+			}
         }
     }
 
@@ -80,9 +90,5 @@
 echo $chart->render();
 echo $chart2->render();
 
-//$temp1 = $chart2->render();
-$temp1 = str_replace('"[', '[', $temp1);
-$temp1 = str_replace(']"', ']', $temp1);
-echo $temp1;
 ?>
 </script>

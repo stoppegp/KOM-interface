@@ -16,15 +16,16 @@ $order0 = array(
 
 $database = new Database(KOM::$dblink);
 
-if (is_numeric(KOM::$active['cat'])) {
+if (isset(KOM::$active['cat']) && is_numeric(KOM::$active['cat'])) {
     $database->setFilter("categories", KOM::$active['cat']);
 }
-if (is_numeric(KOM::$active['party'])) {
+if (isset(KOM::$active['party']) && is_numeric(KOM::$active['party'])) {
     $database->setFilter("parties", KOM::$active['party']);
 }
-if (isset($_GET['pstid'])) {
-    $database->setFilter("pledgestatetypeids", $_GET['pstid']);
+if (isset(KOM::$active['pstg']) && is_numeric(KOM::$active['pstg'])) {
+    $database->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
 }
+
 
 $database->loadContent();
 

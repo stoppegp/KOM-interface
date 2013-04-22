@@ -1,13 +1,13 @@
 <?php
 $database = new Database(KOM::$dblink);
 
-if (is_numeric(KOM::$active['cat'])) {
+if (isset(KOM::$active['cat']) && is_numeric(KOM::$active['cat'])) {
     $database->setFilter("categories", KOM::$active['cat']);
 }
-if (is_numeric(KOM::$active['party'])) {
+if (isset(KOM::$active['party']) && is_numeric(KOM::$active['party'])) {
     $database->setFilter("parties", KOM::$active['party']);
 }
-if (is_numeric(KOM::$active['pstg'])) {
+if (isset(KOM::$active['pstg']) && is_numeric(KOM::$active['pstg'])) {
     $database->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
 }
 
@@ -19,7 +19,7 @@ $ausw = new Analysis($database);
 $curnr = $ausw->getCurrentNumberOfPledgestatetypes();
 
 foreach ($database->getPledgestatetypes() as $value) {
-    if ($curnr[$value->getID()]*$value->getMultipl() > 0) {
+    if (isset($curnr[$value->getID()]) && ($curnr[$value->getID()]*$value->getMultipl() > 0)) {
         $chart1array[$value->getOrder()]['name'] = $value->getName();
         $chart1array[$value->getOrder()]['color'] = $value->getColour();
         $chart1array[$value->getOrder()]['y'] = $curnr[$value->getID()]*$value->getMultipl();

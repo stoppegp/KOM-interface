@@ -3,12 +3,12 @@ $database = new Database(KOM::$dblink);
 $databaseGR = new Database(KOM::$dblink);
 $databaseK = new Database(KOM::$dblink);
 
-if (is_numeric(KOM::$active['cat'])) {
+if (isset(KOM::$active['cat']) && is_numeric(KOM::$active['cat'])) {
     $database->setFilter("categories", KOM::$active['cat']);
     $databaseK->setFilter("categories", KOM::$active['cat']);
     $databaseGR->setFilter("categories", KOM::$active['cat']);
 }
-if (is_numeric(KOM::$active['pstg'])) {
+if (isset(KOM::$active['pstg']) && is_numeric(KOM::$active['pstg'])) {
     $database->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
     $databaseK->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
     $databaseGR->setFilter("pledgestatetypegroup", KOM::$active['pstg']);
@@ -35,11 +35,16 @@ ob_end_clean();
 
     /* Aktuelle Verteilung */
     $nr = $auswGR->getCurrentNumberOfPledgestatetypes();
+	$group_nr = array();
+	$group_perc = array();
     if (is_array($nr)) {
         $compl = array_sum($nr);
         foreach ($databaseGR->getPledgestatetypegroups() as $value0) {
+			$group_nr[$value0->getID()] = 0;
             foreach ($databaseGR->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
-                $group_nr[$value0->getID()] += $nr[$value->getID()];
+                if (isset($nr[$value->getID()])) {
+					$group_nr[$value0->getID()] += $nr[$value->getID()];
+				}
             }
             $group_perc[$value0->getID()] = floor($group_nr[$value0->getID()]/$compl*100);
         }
@@ -60,9 +65,14 @@ ob_end_clean();
     $Knr = $auswK->getCurrentNumberOfPledgestatetypes();
     if (is_array($Knr)) {
         $Kcompl = array_sum($Knr);
+		$Kgroup_nr = array();
+		$Kgroup_perc = array();
         foreach ($databaseK->getPledgestatetypegroups() as $value0) {
+			$Kgroup_nr[$value0->getID()] = 0;
             foreach ($databaseK->getPledgestatetypegroup($value0->getID())->getPledgestatetypes() as $value) {
-                $Kgroup_nr[$value0->getID()] += $Knr[$value->getID()];
+				if (isset($Knr[$value->getID()])) {
+					$Kgroup_nr[$value0->getID()] += $Knr[$value->getID()];
+				}
             }
             $Kgroup_perc[$value0->getID()] = floor($Kgroup_nr[$value0->getID()]/$Kcompl*100);
         }
