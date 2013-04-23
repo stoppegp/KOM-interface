@@ -1,4 +1,7 @@
 <?php
+
+require_once('helpers/sto_highchart_parser.class.php');
+
 $page[0]['name'] = "chronik";
 $page[0]['file'] = "chronik";
 $page[1]['name'] = "statistik";
