@@ -57,7 +57,6 @@
         //$chart->activateLinks();
         
         $chart->options['series'] = $auswGR->getChartseriesPieGroup(false, array(2 => array("sliced" => true)));
-		print_r($auswGR->getChartseriesPieGroup(false, array(2 => array("sliced" => true))));
     
     /* Diagramm erstellen */
             

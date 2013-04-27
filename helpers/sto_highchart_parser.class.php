@@ -3,7 +3,7 @@
 sto-highchart-parser
 simple parser for highcharts
 
-version: 20130408-01
+version: 20130427-01
 
 author: Martin Stoppler
 licence: dowhateveryouwant
@@ -47,7 +47,11 @@ class sto_highchart_parser {
 		$ret = "";
         foreach ($array as $key => $val) {
             if (is_numeric($val) || strpos(" ".$val, "function(") > 0) {
-                $val0 = $val;
+                if (is_float($val)) {
+                    $val0 = number_format($val, 4, '.', '');
+                } else {
+                    $val0 = $val;
+                }
             } elseif (is_bool($val)) {
                 if ($val) {
                     $val0 = "true";
