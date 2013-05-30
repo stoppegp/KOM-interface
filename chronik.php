@@ -49,7 +49,7 @@ if (is_array($ausw->getStates("datum", "DESC")) && count($ausw->getStates("datum
             if (in_array($val2->getPledgestatetype()->getID(), array(3,4)) && !in_array($val2->getPledgeID(), $pledgeidarray_geh)) {
                 $pledgeidarray_geh[] = $val2->getPledgeID();
                 $tempar['datum'] = $value->getDatum();
-                $tempar['pledge'] = &$val2->getPledge();
+                $tempar['pledge'] = $val2->getPledge();
                 $pledgearray_geh[] = $tempar;
                 //$value0 = $val2->getPledge();
                 //print_r($value0);
@@ -57,7 +57,7 @@ if (is_array($ausw->getStates("datum", "DESC")) && count($ausw->getStates("datum
             } elseif (in_array($val2->getPledgestatetype()->getID(), array(5,8,10)) && !in_array($val2->getPledgeID(), $pledgeidarray_geb)) {
                 $pledgeidarray_geb[] = $val2->getPledgeID();
                 $tempar['datum'] = $value->getDatum();
-                $tempar['pledge'] = &$val2->getPledge();
+                $tempar['pledge'] = $val2->getPledge();
                 $pledgearray_geb[] = $tempar;
                 
                 //$value0 = $val2->getPledge();
